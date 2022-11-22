@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'ffaker'
 end
 
 group :development do

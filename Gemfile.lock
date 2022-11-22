@@ -71,6 +71,7 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.11.0)
+    ffaker (2.18.0)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -185,6 +186,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   dotenv-rails
+  ffaker
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
