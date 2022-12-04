@@ -1,19 +1,28 @@
 class PostsController < ApplicationController
-  before_action :set_post!, only: %i[show edit update destroy]
+  skip_before_action :verify_authenticity_token
+  before_action :set_user_post!, only: %i[edit update destroy]
 
   def index
-    @posts = Post.all
+    user = User.find(cookies[:user_id])
+
+    @posts = []
+    Post.all.each do |post|
+      @posts << post if post.user.id == user.id
+    end
   end
 
-  def show; end
+  def show
+    @post = Post.find(params[:id])
+  end
 
   def new
     @post = Post.new
   end
 
   def create
-    @post = Post.new(post_params)
+    user = User.find(cookies[:user_id])
 
+    @post = Post.create(params[user_id: user])
     if @post.save
       redirect_to @post
     else
@@ -38,11 +47,11 @@ class PostsController < ApplicationController
 
   private
 
-  def set_post!
-    @post = Post.find(params[:id])
+  def set_user_post!
+    @post = Post.find(cookies[:user_id])
   end
 
   def post_params
-    params.require(:post).permit(:description)
+    params.require(:post).permit(:user_id, :description)
   end
 end
