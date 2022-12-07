@@ -30,9 +30,13 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    authorize @post
+  end
 
   def update
+    authorize @post
+
     if @post.update(post_params)
       redirect_to @post
     else
@@ -41,6 +45,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
+
     @post.destroy
     redirect_to root_path
   end
