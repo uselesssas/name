@@ -8,11 +8,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
   </head>
 
+  <%= tag.header render 'layouts/navbar' if user_signed_in? %>
+
   <body>
-    <!-- <p class="notice"><%= notice %></p> -->
-    <!-- <p class="alert"><%= alert %></p> -->
-    <%= yield %>
+    <%= tag.p notice, class: 'notice' if notice %>
+    <%= tag.p alert, class: 'alert' if alert %>
+    <main><%= yield %></main>
   </body>
 </html>

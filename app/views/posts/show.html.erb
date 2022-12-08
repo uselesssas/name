@@ -1,0 +1,18 @@
+<h1>Post</h1>
+
+<table>
+  <tr>
+    <td>User name</td>
+    <td>Post Description</td>
+    <td>Settings</td>
+  </tr>
+  <tr>
+    <td><%= @post.user.first_name %></td>
+    <td><%= @post.description %></td>
+    <td>
+      <%= link_to 'Edit', edit_post_path(@post) if policy(@post).edit? %>
+      <%= link_to 'Delete', post_path(@post), method: :delete if policy(@post).destroy? %>
+      <%= link_to 'Back', posts_path %>
+    </td>
+  </tr>
+</table>

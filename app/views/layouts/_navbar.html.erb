@@ -1,0 +1,6 @@
+<nav>
+  <p>You are logged in as: <%= current_user.first_name %></p>
+  <%= link_to 'All posts', posts_path %>
+  <%= link_to 'New post', new_post_path %>
+  <%= link_to 'Exit', destroy_user_session_path, method: :delete %>
+</nav>
