@@ -22,6 +22,8 @@ gem 'webpacker', '~> 5.0'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'ffaker'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do

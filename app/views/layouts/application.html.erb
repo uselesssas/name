@@ -17,5 +17,6 @@
     <%= tag.p notice, class: 'notice' if notice %>
     <%= tag.p alert, class: 'alert' if alert %>
     <main><%= yield %></main>
+    <%= console if Rails.env.development? %>
   </body>
 </html>
