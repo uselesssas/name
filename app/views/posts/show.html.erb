@@ -3,11 +3,13 @@
 <table>
   <tr>
     <td>User name</td>
+    <td>Image</td>
     <td>Post Description</td>
     <td>Settings</td>
   </tr>
   <tr>
     <td><%= @post.user.first_name %></td>
+    <td><%= @post.image_url ? image_tag(@post.image_url) : 'No image' %></td>
     <td><%= @post.description %></td>
     <td>
       <%= link_to 'Edit', edit_post_path(@post) if policy(@post).edit? %>
