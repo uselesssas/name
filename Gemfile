@@ -21,9 +21,13 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'factory_bot_rails'
   gem 'ffaker'
   gem 'pry'
   gem 'pry-rails'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
