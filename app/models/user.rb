@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, :last_name, presence: true
+  validates :phone_number, uniqueness: true
+
+  def full_name
+    "#{first_name} #{last_name}".strip
+  end
 end

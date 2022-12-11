@@ -7,5 +7,6 @@ FactoryBot.define do
     password_confirmation { 'password' }
     first_name { FFaker::Name.first_name }
     last_name { FFaker::Name.last_name }
+    phone_number { FFaker::PhoneNumber.unique.imei }
   end
 end
